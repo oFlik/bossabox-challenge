@@ -1,0 +1,15 @@
+services:
+  server:
+    build:
+      context: .
+      target: dev
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3001:3001
+      - 9229:9229
+    volumes:
+      - ./src:/usr/src/app/src
+      - /usr/src/app/node_modules
+
+
