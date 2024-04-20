@@ -5,6 +5,8 @@ services:
       target: dev
     environment:
       NODE_ENV: production
+      TEST: ${TEST}
+      DB_CONN: ${DB_CONN}
     ports:
       - 3001:3001
       - 9229:9229
