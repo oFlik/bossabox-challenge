@@ -15,7 +15,21 @@ exports.createTool = async (req, res) => {
 };
 
 exports.getTools = async (req, res) => {
-  const tools = await Tool.find({});
+  const { tag } = req.query;
 
-  return res.send(tools);
+  if (tag) {
+    const tools = await Tool.find({ tags: tag });
+    return res.status(200).send(tools);
+  }
+
+  const tools = await Tool.find({});
+  return res.status(200).send(tools);
+};
+
+exports.deleteTool = async (req, res) => {
+  const { id } = req.params;
+
+  const tool = await Tool.findByIdAndDelete({ _id: id });
+
+  return res.status(200).send({});
 };
