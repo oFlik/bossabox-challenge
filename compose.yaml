@@ -4,7 +4,7 @@ services:
       context: .
       target: dev
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
       DB_CONN: ${DB_CONN}
     ports:
       - 3000:3000
@@ -12,3 +12,5 @@ services:
     volumes:
       - ./src:/usr/src/app/src
       - /usr/src/app/node_modules
+
+
