@@ -7,7 +7,7 @@ FROM node:${NODE_VERSION}-alpine as base
 
 ENV NODE_ENV production
 
-EXPOSE 3001
+EXPOSE 3000
 
 WORKDIR /usr/src/app
 
