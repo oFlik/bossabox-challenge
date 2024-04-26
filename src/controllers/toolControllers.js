@@ -14,7 +14,7 @@ exports.createTool = async (req, res) => {
     const savedTool = await tool.save();
     res.status(201).send(savedTool);
   } catch (e) {
-    console.log(e);
+    console.log(e.message);
     res.status(500).send({ message: 'Erro do servidor' });
   }
 };
@@ -31,7 +31,7 @@ exports.getTools = async (req, res) => {
     const tools = await Tool.find({});
     return res.status(200).send(tools);
   } catch (e) {
-    console.log(e);
+    console.log(e.message);
     res.status(500).send({ message: 'Erro do servidor' });
   }
 };
@@ -43,7 +43,7 @@ exports.deleteTool = async (req, res) => {
     await Tool.findByIdAndDelete({ _id: id });
     return res.status(200).send({});
   } catch (e) {
-    console.log(e);
+    console.log(e.message);
     res.status(500).send({ message: 'Erro do servidor' });
   }
 };
